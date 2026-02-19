@@ -23,6 +23,7 @@ export class PatientsService {
 
     async create(createPatientDto: CreatePatientDto) {
         try {
+            // createPatientDto.cognome = 123;
             return await this.prismaClient.patient.create({
                 data: createPatientDto
             });
