@@ -4,14 +4,14 @@ export class PatientDto {
     @ApiProperty({
         type: "integer",
     })
-    id: string;
+    id!: string;
     @ApiProperty({
         type: "string",
     })
-    nome: string;
+    nome!: string;
 
     @ApiProperty({
         type: "string",
     })
-    cognome: string;
+    cognome!: string;
 }
