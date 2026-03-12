@@ -1,0 +1,84 @@
+{
+  "name": "frontend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "asepa",
+  "sourceRoot": "apps/ospedale-frontend/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/ospedale-frontend",
+        "browser": "apps/ospedale-frontend/src/main.ts",
+        "tsConfig": "apps/ospedale-frontend/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/ospedale-frontend/public"
+          }
+        ],
+        "styles": ["apps/ospedale-frontend/src/styles.scss"]
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@angular/build:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "frontend:build:production"
+        },
+        "development": {
+          "buildTarget": "frontend:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/ospedale-frontend/jest.config.cts",
+        "tsConfig": "apps/ospedale-frontend/tsconfig.spec.json"
+      }
+    },
+    "serve-static": {
+      "continuous": true,
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "frontend:build",
+        "port": 4200,
+        "staticFilePath": "dist/apps/ospedale-frontend/browser",
+        "spa": true
+      }
+    }
+  }
+}
