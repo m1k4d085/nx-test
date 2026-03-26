@@ -1,0 +1,9 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'asepa-error-404-component',
+  imports: [],
+  templateUrl: './error-404.component.html',
+  styleUrl: './error-404.component.scss',
+})
+export class Error404Component {}

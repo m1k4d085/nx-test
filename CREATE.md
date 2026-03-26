@@ -22,11 +22,11 @@ Create Angular App:
 
 Create Angular API library:
 
-`nx g @nx/angular:library --name API --directory libs/api --buildable --flat --skipModule --skipSelector --skipTests --style none --tags type:infrastructure,domain:shared --unitTestRunner none --prefix sf`
+`nx g @nx/angular:library --name API --directory libs/api --buildable --flat --skipModule --skipSelector --skipTests --style none --tags api --unitTestRunner none --prefix asepa`
 
 Create Angular Component library:
 
-`nx g @nx/angular:library --name <name> --directory libs/<directory> --buildable --flat --skipModule --skipSelector --skipTests --style scss --tags <type:?>,<domain:?>,<scope:?> --unitTestRunner jest --prefix sf`
+`nx g @nx/angular:library --name <name> --directory libs/<directory> --buildable --flat --skipModule --skipSelector --skipTests --style scss --tags <type:?>,<domain:?>,<scope:?> --unitTestRunner jest --prefix asepa`
 
 - set routing: **add** `--routing`
 
@@ -34,13 +34,15 @@ Create Angular Component library:
 
 - add selector: **remove** `--skipSelector`
 
+- add Tailwind: **add** `--addTailwind`
+
 Remove library:
 
 `nx g @nx/workspace:remove <library name>`
 
 Create component:
 
-`nx g @nx/angular:component --name <name> --path libs/<a directory of specific library> --style scss --prefix asepa`
+`nx g @nx/angular:component --name <name> --path libs/<a directory of specific library> --skipTests --style scss --prefix asepa`
 
 - specify selector: **add** `--selector <name>`
 

@@ -5,6 +5,7 @@ export class PatientDto {
         type: "integer",
     })
     id!: string;
+    
     @ApiProperty({
         type: "string",
     })

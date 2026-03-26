@@ -17,7 +17,9 @@
     "paths": {
       "@ospedale/repository": ["libs/repository/src/index.ts"],
       "@ospedale/patients": ["libs/patients/src/index.ts"],
-      "@ospedale/examinations": ["libs/examinations/src/index.ts"]
+      "@ospedale/examinations": ["libs/examinations/src/index.ts"],
+      "@ospedale/ng-patients": ["libs/frontend/patients/src/index.ts"],
+      "@ospedale/API": ["libs/api/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
