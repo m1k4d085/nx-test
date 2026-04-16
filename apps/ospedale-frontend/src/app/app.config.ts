@@ -4,8 +4,10 @@ import {
   provideBrowserGlobalErrorListeners,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { provideFormlyCore } from '@ngx-formly/core';
 import { appRoutes } from './app.routes';
 import { ApiModule, Configuration, ConfigurationParameters } from '@ospedale/API';
+import { FormlyBuilder } from '@ospedale/formly';
 
 function APIConfigFactory(): Configuration {
   const params: ConfigurationParameters = {
@@ -16,6 +18,12 @@ function APIConfigFactory(): Configuration {
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideFormlyCore(
+      FormlyBuilder
+      .create()
+      //altre opzioni di configurazione
+      .build()
+    ),
     importProvidersFrom(ApiModule.forRoot(APIConfigFactory)),
     provideBrowserGlobalErrorListeners(),
     provideRouter(appRoutes)
